@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Pneumonia Prediction using X-RAY images</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 3px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+.main {   
+  -ms-flex: 65%; /* IE10 */
+  flex: 65%;
+  background-color: white;
+  padding: 15px;
+}
+
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation 
+links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 80%;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Pneumonia Prediction using X-RAY images</h1>
+  <p>A <b>responsive</b> website created by Titans.</p>
+</div>
+
+
+<div class="row">
+  <div class="side">
+    <h2>Drop in the X-Ray image to know if it is infected!</h2>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+           <p>Upload the image here</p>
+           <input type="file" name="image" id="image_input" accept=".png, .jpg, .jpeg"/>
+           <br><br>
+           <input type="submit"/>
+    </form>
+    <br> <b> Your X-Ray image : </b> 
+    <br> <img src="data:image/jpeg;base64,{{ image }}", 
+    style= " padding: 10px; width: 170px; height: 170px ">
+    <br> <b> Inference : </b> {{value}} 
+  </div>
+  <div class="main">
+    <h2>Pneumonia Detection</h2>
+    <img src="https://miro.medium.com/max/3000/1*J5wUMztRXZ_eHimMxULAnA.png"alt"Pneumonia">
+    <p>The risk of pneumonia is immense for many, especially in developing nations where billions face energy poverty and rely on polluting forms of energy. This model automatically identifies whether a patient is suffering from pneumonia or not by looking at chest X-ray images.</p>
+    <p>The WHO estimates that over 4 million premature deaths occur annually from household air pollution-related diseases including pneumonia. Over 150 million people get infected with pneumonia on an annual basis especially children under 5 years old. In such regions, the problem can be further aggravated due to the dearth of medical resources and personnel. For example, in Africa’s 57 nations, a gap of 2.3 million doctors and nurses exists. For these populations, accurate and fast diagnosis means everything. It can guarantee timely access to treatment and save much needed time and money for those already experiencing poverty.</p>
+    <br>
+  </div>
+</div>
+
+</body>
+</html>
